@@ -1,4 +1,14 @@
 import { initPlasmicLoader } from "@plasmicapp/loader-nextjs";
+import { 
+  SupabaseProvider, 
+  SupabaseProviderMeta,
+  SupabaseUserGlobalContext,
+  SupabaseUserGlobalContextMeta,
+  SupabaseUppyUploader,
+  SupabaseUppyUploaderMeta,
+  SupabaseStorageGetSignedUrl,
+  SupabaseStorageGetSignedUrlMeta,
+} from "plasmic-supabase"
 
 export const PLASMIC = initPlasmicLoader({
   projects: [
@@ -23,3 +33,10 @@ export const PLASMIC = initPlasmicLoader({
 // https://docs.plasmic.app/learn/app-hosting/#set-a-plasmic-project-to-use-your-app-host
 
 // PLASMIC.registerComponent(...);
+PLASMIC.registerGlobalContext(SupabaseUserGlobalContext, SupabaseUserGlobalContextMeta)
+
+//Register components
+PLASMIC.registerComponent(SupabaseProvider, SupabaseProviderMeta);
+PLASMIC.registerComponent(SupabaseUppyUploader, SupabaseUppyUploaderMeta);
+PLASMIC.registerComponent(SupabaseStorageGetSignedUrl, SupabaseStorageGetSignedUrlMeta);
+
